@@ -5,16 +5,14 @@ using UnityEngine;
 public class EnemyTracking : MonoBehaviour
 {
     public GameObject Target;
-    public int EnemySpeed;
-    public int RotationSpeed;
     Rigidbody2D myRB;
     public float ChaseSpeed = 5;
 
     // Start is called before the first frame update
     void Start()
     {
-        Target = FindObjectOfType<PlayerController>().gameObject; 
-
+        Target = FindObjectOfType<PlayerController>().gameObject;
+        myRB = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -23,12 +21,12 @@ public class EnemyTracking : MonoBehaviour
         if (Target != null)
         {
             Vector3 toTarget = Target.transform.position - transform.position;
-
             Track(toTarget);
         }
     }
     void Track(Vector3 toTarget)
     {
         myRB.velocity = toTarget.normalized * ChaseSpeed;
+
     }
 }
