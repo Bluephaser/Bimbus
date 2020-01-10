@@ -23,10 +23,19 @@ public class EnemyTracking : MonoBehaviour
             Vector3 toTarget = Target.transform.position - transform.position;
             Track(toTarget);
         }
+    
     }
     void Track(Vector3 toTarget)
     {
         myRB.velocity = toTarget.normalized * ChaseSpeed;
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.name == "Player")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
