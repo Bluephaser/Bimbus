@@ -14,6 +14,7 @@ public class EnemySpawn : MonoBehaviour
 {
     public GameObject enemy;
     public GameObject warning;
+
     float timer = 0;
     float spawnTimer = 0;
     public float startingCooldown = 5;
@@ -25,24 +26,36 @@ public class EnemySpawn : MonoBehaviour
         
     }
 
+    IEnumerator DestroyAfterTime(GameObject toDestroy, float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Destroy(toDestroy);
+    }
+
+    IEnumerator CreateAfterTime(GameObject toCreate, float seconds, Vector3 spawnPos)
+    {
+        yield return new WaitForSeconds(seconds);
+        Instantiate(toCreate, spawnPos, Quaternion.identity);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        float xAxis = Random.Range(-8.5f, 8.5f);
+        float yAxis = Random.Range(-4.5f, 4.5f);
         //count the seconds until the next enemy spawn
         timer += Time.deltaTime;
         if(timer >= startingCooldown)
         {
-            Instantiate(warning, new Vector3(Random.Range(-8.5f, 8.5f), Random.Range(-4.5f, 4.5f), 0), Quaternion.identity);
-            while(spawnTimer < startingSpawnCooldown)
-            {
-                //display a warning image at the location of the enemy spawn while starting another timer
-                spawnTimer += Time.deltaTime;
-            }
+            GameObject warningCopy = Instantiate(warning, new Vector3(xAxis, yAxis, 0), Quaternion.identity);
+
+            StartCoroutine(DestroyAfterTime(warningCopy, 3.0f));
+
             //once timer ends, destroy the warning message and spawn the enemy
-            Instantiate(enemy, new Vector3(warning.transform.position.x, warning.transform.position.y, 0), Quaternion.identity);
-            Destroy(warning);
+            StartCoroutine(CreateAfterTime(enemy, 3, new Vector3(xAxis, yAxis, 0)));
             timer = 0;
             spawnTimer = 0;
         }
     }
+
 }
