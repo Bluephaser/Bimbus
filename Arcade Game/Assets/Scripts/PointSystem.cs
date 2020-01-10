@@ -8,6 +8,7 @@ public class PointSystem : MonoBehaviour
     float timer = 0;
     private int currentScore;
     public Text ScoreText;
+    public Text EndScore;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +31,6 @@ public class PointSystem : MonoBehaviour
     private void HandleScore()
     {
         ScoreText.text = "Player Score: " + currentScore;
+        EndScore.text = "Final Score: " + currentScore;
     }
 }
