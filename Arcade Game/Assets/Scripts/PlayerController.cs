@@ -27,23 +27,23 @@ public class PlayerController : MonoBehaviour
         //check for forward and backward movement
         if(Input.GetAxis("Vertical") > 0.1)
         {
-            movement += speed * new Vector2(0, transform.up.y).normalized;
+            movement += new Vector2(0, 1).normalized;
         }
         if(Input.GetAxis("Vertical") < -0.1)
         {
-            movement -= speed * new Vector2(0, transform.up.y).normalized;
+            movement -= new Vector2(0, 1).normalized;
         }
         //check for left and right movement
         if (Input.GetAxis("Horizontal") > 0.1)
         {
-            movement += speed * new Vector2(transform.up.x, 0).normalized;
+            movement += new Vector2(1, 0);
         }
         if (Input.GetAxis("Horizontal") < -0.1)
         {
-            movement -= speed * new Vector2(transform.up.x, 0).normalized;
+            movement -= new Vector2(1, 0);
         }
 
         //add force based on the prior inputs
-        myRB.AddForce(movement * Time.deltaTime);
+        myRB.AddForce(movement.normalized * Time.deltaTime * speed);
     }
 }
