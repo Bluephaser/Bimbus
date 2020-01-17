@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+By: Noah Cobb
+Date: 1/17/2020
+Description: Script for simple AI tracking
+*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
