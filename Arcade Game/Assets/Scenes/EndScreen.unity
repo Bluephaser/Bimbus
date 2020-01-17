@@ -1014,6 +1014,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndScore
       objectReference: {fileID: 0}
+    - target: {fileID: 7249086782300287359, guid: 1a8265a183b36354baf3ee99dc103fbf,
+        type: 3}
+      propertyPath: m_Text
+      value: LOL
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a8265a183b36354baf3ee99dc103fbf, type: 3}
 --- !u!1 &7249086781992241448 stripped
@@ -1034,7 +1039,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8c4dab96528f746b425e3cb249a0fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreText: {fileID: 4069013704218872307, guid: 3d77f64ed3621ce4fa56fafec78e613a,
+  ScoreText: {fileID: 7249086781992241450}
+--- !u!114 &7249086781992241450 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7249086782300287359, guid: 1a8265a183b36354baf3ee99dc103fbf,
     type: 3}
-  EndScore: {fileID: 7249086782300287359, guid: 1a8265a183b36354baf3ee99dc103fbf,
-    type: 3}
+  m_PrefabInstance: {fileID: 7249086781992241447}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7249086781992241448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

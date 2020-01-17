@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PointSystem : MonoBehaviour
 {
     float timer = 0;
-    private int currentScore;
+    
     public Text ScoreText;
-    public Text EndScore;
+    //public Text EndScore;
     // Start is called before the first frame update
     void Start()
     {
-        currentScore = 0;
+        if(SceneManager.GetActiveScene().name == "Level 1")
+            GameManager.Score = 0;
         
     }
 
@@ -24,13 +26,16 @@ public class PointSystem : MonoBehaviour
         
         if(timer >= 5)
         {
-            ++currentScore;
+            ++GameManager.Score;
             timer = 0;
         }
     }
     private void HandleScore()
     {
-        ScoreText.text = "Player Score: " + currentScore;
-        EndScore.text = "Final Score: " + currentScore;
+        if (ScoreText != null)
+            ScoreText.text = "Player Score: " + GameManager.Score;
+
+        //if(EndScore != null)
+            //EndScore.text = "Final Score: " + currentScore;
     }
 }
