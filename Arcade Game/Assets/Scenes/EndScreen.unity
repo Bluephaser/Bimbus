@@ -1036,10 +1036,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7249086781992241448}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8c4dab96528f746b425e3cb249a0fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 31f2d4084b538dc439747084ccadd730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreText: {fileID: 7249086781992241450}
+  FinalScoreText: {fileID: 7249086781992241450}
 --- !u!114 &7249086781992241450 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7249086782300287359, guid: 1a8265a183b36354baf3ee99dc103fbf,
